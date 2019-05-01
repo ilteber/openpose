@@ -2,6 +2,7 @@
 #include <openpose/utilities/fastMath.hpp>
 #include <openpose/utilities/string.hpp>
 #include <openpose/producer/videoCaptureReader.hpp>
+#include <string>
 
 namespace op
 {
@@ -88,7 +89,14 @@ namespace op
         {
             // Get frame
             cv::Mat frame;
+            double total_frames = mVideoCapture.get(CV_CAP_PROP_FRAME_COUNT);
+            double current_frame = mVideoCapture.get(CV_CAP_PROP_POS_FRAMES);
+            double progressRatio = 100*current_frame/total_frames;
+            std::cout << "%" << progressRatio << "is done" << std::endl;
             mVideoCapture >> frame;
+            if(frame.empty()){
+              std::cout << "frame no: "<< mVideoCapture.get(CV_CAP_PROP_POS_FRAMES)<<"\\"<<mVideoCapture.get(CV_CAP_PROP_FRAME_COUNT)<<" is empty out of frame no"<< std::endl;
+            }
             // Skip frames if frame step > 1
             const auto frameStep = Producer::get(ProducerProperty::FrameStep);
             if (frameStep > 1 && !frame.empty() && get(CV_CAP_PROP_POS_FRAMES) < get(CV_CAP_PROP_FRAME_COUNT)-1)

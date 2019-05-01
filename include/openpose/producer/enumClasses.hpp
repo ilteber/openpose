@@ -18,6 +18,7 @@ namespace op
         Rotation,
         FrameStep,
         NumberViews,
+        videoId,
         Size,
     };
 

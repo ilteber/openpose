@@ -216,6 +216,7 @@ namespace op
                 producerSharedPtr->set(ProducerProperty::Flip, wrapperStructInput.frameFlip);
                 producerSharedPtr->set(ProducerProperty::Rotation, wrapperStructInput.frameRotate);
                 producerSharedPtr->set(ProducerProperty::AutoRepeat, wrapperStructInput.framesRepeat);
+                producerSharedPtr->set(ProducerProperty::videoId, wrapperStructInput.videoId);
                 // 2. Set finalOutputSize
                 producerSize = Point<int>{(int)producerSharedPtr->get(CV_CAP_PROP_FRAME_WIDTH),
                                           (int)producerSharedPtr->get(CV_CAP_PROP_FRAME_HEIGHT)};

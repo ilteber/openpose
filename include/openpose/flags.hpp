@@ -264,6 +264,8 @@ DEFINE_string(write_bvh,                "",             "Experimental, not avail
 // UDP Communication
 DEFINE_string(udp_host,                 "",             "Experimental, not available yet. IP for UDP communication. E.g., `192.168.0.1`.");
 DEFINE_string(udp_port,                 "8051",         "Experimental, not available yet. Port number for UDP communication.");
+DEFINE_int32(videoId,                     -1,            "videoId to be processed");
+
 #endif // OPENPOSE_FLAGS_DISABLE_POSE
 
 #endif // OPENPOSE_FLAGS_HPP

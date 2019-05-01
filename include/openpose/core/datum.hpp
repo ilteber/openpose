@@ -223,7 +223,7 @@ namespace op
 
         /**
          * Size(s) (width x height) of the image(s) fed to the pose deep net.
-         * The size of the std::vector corresponds to the number of scales. 
+         * The size of the std::vector corresponds to the number of scales.
          */
         std::vector<Point<int>> netInputSizes;
 
@@ -247,7 +247,10 @@ namespace op
          * 1 and "Neck").
          */
         std::pair<int, std::string> elementRendered;
-
+        /**
+        * id of the video
+        */
+        int videoId;
         // 3D/Adam parameters (experimental code not meant to be publicly used)
         #ifdef USE_3D_ADAM_MODEL
             // Adam/Unity params
